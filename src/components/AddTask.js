@@ -25,15 +25,14 @@ function AddTask(props) {
         Mark as Priority Task */}
         <FormControlLabel
           value="end"
-          control={<Checkbox size='small' color="primary" />}
+          control={<Checkbox size='small' style={{color:"rgb(1, 202, 202)"}} />}
           label={<span style={{ fontSize: 'small' }}>Mark as Priority Task</span>}
           labelPlacement="end"
-          style={{fontSize: 'small'}}
         />
       </div>
       </Modal.Body>
       <Modal.Footer style={{marginBottom: '20px'}}>
-        <Button style={{marginRight: '20px', padding: '0px 35px'}} >Create</Button>
+        <Button style={{marginRight: '20px', padding: '0px 35px', background: 'rgb(1, 202, 202)', border:'none'}} >Create</Button>
         <Button style={{padding: '0px 35px'}} variant="light" onClick={props.onHide}>Cancel</Button>
       </Modal.Footer>
     </Modal>
