@@ -1,22 +1,30 @@
 import { Checkbox, FormControlLabel } from "@material-ui/core";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { Context } from "../utils/Context";
-import { createTodoTask } from "../utils/services";
+import { createTodoTask, editTodoTask } from "../utils/services";
 import "./AddTask.css";
 
-function AddTask(props) {
+function EditTask(props) {
   const [description, setDescription] = useState("");
   const { state, dispatch } = useContext(Context);
 
-  const onCreateHandler = () => {
+  const updateHandler = () => {
     let data = {
-      id: Math.floor(Math.random() * 1000000 + 1),
+        id : props.findedObject.id,
       text: description,
     };
-    createTodoTask(data, dispatch);
+    editTodoTask(data, dispatch);
     props.onHide();
+    console.log('object')
   };
+
+useEffect(() => {
+    if(props.findedObject){
+        setDescription(props.findedObject.text)
+    }
+
+}, [props.findedObject])
   return (
     <div>
       <Modal
@@ -27,7 +35,7 @@ function AddTask(props) {
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
-            Create New Task
+            Edit Your Task
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -35,13 +43,14 @@ function AddTask(props) {
             type="text"
             placeholder="Type here...."
             onChange={(e) => setDescription(e.target.value)}
+            value={description}
           />
           <div
             style={{ display: "flex", alignItems: "center", marginTop: "10px" }}
           >
             {/* <Checkbox color='primary'></Checkbox>
         Mark as Priority Task */}
-            <FormControlLabel
+            {/* <FormControlLabel
               value="end"
               control={<Checkbox size="small" color="primary" />}
               label={
@@ -49,15 +58,15 @@ function AddTask(props) {
               }
               labelPlacement="end"
               style={{ fontSize: "small" }}
-            />
+            /> */}
           </div>
         </Modal.Body>
         <Modal.Footer style={{ marginBottom: "20px" }}>
           <Button
             style={{ marginRight: "20px", padding: "0px 35px" }}
-            onClick={() => onCreateHandler()}
+            onClick={() => updateHandler()}
           >
-            Create
+            Update
           </Button>
           <Button
             style={{ padding: "0px 35px" }}
@@ -72,4 +81,4 @@ function AddTask(props) {
   );
 }
 
-export default AddTask;
+export default EditTask;
