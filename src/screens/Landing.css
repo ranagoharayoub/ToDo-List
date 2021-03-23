@@ -100,7 +100,7 @@
 .disc{
     display: flex;
     align-items: center;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 
 .edit-del{
