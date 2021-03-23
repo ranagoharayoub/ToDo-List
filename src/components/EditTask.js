@@ -11,20 +11,19 @@ function EditTask(props) {
 
   const updateHandler = () => {
     let data = {
-        id : props.findedObject.id,
+      id: props.findedObject.id,
       text: description,
     };
     editTodoTask(data, dispatch);
     props.onHide();
-    console.log('object')
+    console.log("object");
   };
 
-useEffect(() => {
-    if(props.findedObject){
-        setDescription(props.findedObject.text)
+  useEffect(() => {
+    if (props.findedObject) {
+      setDescription(props.findedObject.text);
     }
-
-}, [props.findedObject])
+  }, [props.findedObject]);
   return (
     <div>
       <Modal
@@ -63,13 +62,19 @@ useEffect(() => {
         </Modal.Body>
         <Modal.Footer style={{ marginBottom: "20px" }}>
           <Button
-            style={{ marginRight: "20px", padding: "0px 35px" }}
+            style={{
+              marginRight: "20px",
+              padding: "0px 35px",
+              background: "rgb(1, 202, 202)",
+              border: "none",
+            }}
             onClick={() => updateHandler()}
           >
             Update
           </Button>
           <Button
             style={{ padding: "0px 35px" }}
+            variant="light"
             variant="light"
             onClick={props.onHide}
           >

@@ -12,7 +12,8 @@ import EditTask from "../components/EditTask";
 const Landing = () => {
   const { state, dispatch } = useContext(Context);
   const [modalShow, setModalShow] = useState(false);
-  const [findedObject, setFindedObject] = useState('');
+  const [editModal, setEditModal] = useState(false);
+  const [findedObject, setFindedObject] = useState("");
 
   useEffect(() => {
     getAllTodos("calltodo", dispatch);
@@ -25,8 +26,8 @@ const Landing = () => {
 
   const editHandler = (id) => {
     console.log("edit", id);
-     setFindedObject(state.todos.find((fi) => fi.id == id));
-    setModalShow(true);
+    setFindedObject(state.todos.find((fi) => fi.id == id));
+    setEditModal(true);
   };
   return (
     <div className="landing-cont">
@@ -44,9 +45,9 @@ const Landing = () => {
               ></AddCircle>
               <AddTask show={modalShow} onHide={() => setModalShow(false)} />
               <EditTask
-                show={modalShow}
+                show={editModal}
                 findedObject={findedObject}
-                onHide={() => setModalShow(false)}
+                onHide={() => setEditModal(false)}
               />
             </div>
           </div>
