@@ -6,6 +6,7 @@ import { Button, Modal, Form } from 'react-bootstrap'
 
 function AddTask(props) {
     return (
+
     <Modal
       {...props}
       size="md"
@@ -20,7 +21,7 @@ function AddTask(props) {
       <Modal.Body>
       <Form.Control type="text" placeholder="Type here...." />
       <div style={{display: 'flex', alignItems: 'center'}}>
-        <Checkbox></Checkbox>
+        <Checkbox color='primary'></Checkbox>
         Mark as Priority Task
       </div>
       </Modal.Body>
@@ -29,6 +30,7 @@ function AddTask(props) {
         <Button variant='danger' onClick={props.onHide}>Cancel</Button>
       </Modal.Footer>
     </Modal>
+
     )
 }
 

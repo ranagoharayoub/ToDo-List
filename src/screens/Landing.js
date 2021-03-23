@@ -30,12 +30,10 @@ const Landing = () => {
                         </div>
                         <div>
                             <AddCircle onClick={() => setModalShow(true)} style={{ fontSize: 50, color: ' rgb(1, 202, 202)' }} ></AddCircle>
-                            
                             <AddTask
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
                             />
-                            
                         </div>
                     </div>
                     <div className='selector'>
@@ -48,11 +46,11 @@ const Landing = () => {
                 </div>
                 <div className='lower-cont'>
                 {
-                            todo.map((disc, keys) =>    
-                            <div className='task-tab'>
-                                <div key={keys.id} className='ch-di'>
+                            todo.map((disc) =>    
+                            <div key={disc.id} className='task-tab'>
+                                <div className='ch-di'>
                                     <CheckCircle  style={{ fontSize: 30, color: ' dimgrey',  }}></CheckCircle>
-                                    <p className='disc'>{disc.text}</p>
+                                    <p  className='disc'>{disc.text}</p>
                                 </div>
                                 <div className='edit-del'>
                                     <Create style={{ fontSize: 30, color: ' dimgrey', marginRight: '5px' }}></Create>
@@ -60,7 +58,7 @@ const Landing = () => {
                                 </div>
                             </div>
                                 
-                                )
+                            )
                 }
                 </div>
             </div>
