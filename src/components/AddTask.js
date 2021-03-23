@@ -1,14 +1,14 @@
 
 import { Checkbox } from '@material-ui/core'
 import React from 'react'
-import { Button, Modal } from 'react-bootstrap'
+import { Button, Modal, Form } from 'react-bootstrap'
 
 
 function AddTask(props) {
     return (
     <Modal
       {...props}
-      size="sm"
+      size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered = 'true'
     >
@@ -18,13 +18,15 @@ function AddTask(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <input type='text'></input>
+      <Form.Control type="text" placeholder="Type here...." />
+      <div style={{display: 'flex', alignItems: 'center'}}>
         <Checkbox></Checkbox>
-        <p>Mark as Priority Task</p>
+        Mark as Priority Task
+      </div>
       </Modal.Body>
       <Modal.Footer>
         <Button>Create</Button>
-        <Button onClick={props.onHide}>Cancel</Button>
+        <Button variant='danger' onClick={props.onHide}>Cancel</Button>
       </Modal.Footer>
     </Modal>
     )

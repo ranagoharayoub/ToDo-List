@@ -8,6 +8,7 @@ import 'react-bootstrap'
 import { AddCircle, CheckCircle, Create, Delete } from '@material-ui/icons'
 import AddTask from '../components/AddTask'
 
+
 const Landing = () => {
     const {state, dispatch } = useContext(Context);
     const [modalShow, setModalShow] = useState(false);
@@ -29,11 +30,12 @@ const Landing = () => {
                         </div>
                         <div>
                             <AddCircle onClick={() => setModalShow(true)} style={{ fontSize: 50, color: ' rgb(1, 202, 202)' }} ></AddCircle>
-
+                            
                             <AddTask
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
                             />
+                            
                         </div>
                     </div>
                     <div className='selector'>
