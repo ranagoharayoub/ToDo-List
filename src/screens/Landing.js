@@ -69,9 +69,9 @@ const Landing = () => {
             <div key={disc.id} className="task-tab">
               <div className="ch-di">
                 <CheckCircle
-                  style={{ fontSize: 30, color: " dimgrey" }}
+                  style={{ fontSize: 30, color: " dimgrey", margin: '10px 10px' }}
                 ></CheckCircle>
-                <p className="disc">{disc.text}</p>
+                <div className="disc">{disc.text}</div>
               </div>
               <div className="edit-del">
                 <Create
