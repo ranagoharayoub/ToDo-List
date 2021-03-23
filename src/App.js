@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Context } from "./utils/Context";
+import { reducer, initialState } from './utils/reducer'
+import {ContextDevTool} from 'react-context-devtool';
+import React , {useMemo, useReducer} from  'react'
+import Landing from "./screens/Landing";
+
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const ContextValue = useMemo(() => ({state, dispatch}), [state, dispatch])
+  // Axios.defaults.baseURL =
+  //   "https://shinyviewmotors.com/staging-api/public/api/v1";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={ContextValue} displayName="RootContext">
+    <ContextDevTool context={Context} id="RootContext" displayName="RootContext" />
+    <Landing/>
+  </Context.Provider>
   );
 }
 
