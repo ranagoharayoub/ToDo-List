@@ -59,7 +59,7 @@ const Landing = () => {
               All
             </button>
             <button className="button">Tasks</button>
-            <button className="button">Purchase</button>
+            <button className="button">Priorities</button>
             <button className="button">Completed</button>
             <button className="button">Deleted</button>
           </div>
